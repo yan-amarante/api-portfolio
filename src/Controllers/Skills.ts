@@ -13,7 +13,9 @@ async function listSkills(req: Request, res: Response) {
 
         const skills = await Skills.find()
 
-        res.status(200).send(skills)
+        const response = { skills: Object.assign({}, skills) }
+        
+        res.status(200).send(response)
 
     } catch (error) {
 
@@ -28,10 +30,10 @@ async function registerSkills(req: Request, res: Response) {
 
     try {
 
-        const values = {image: req.body.image, name: req.body.name}
+        const values = { image: req.body.image, name: req.body.name, label: req.body.label }
 
         await connectDatabase()
-        
+
         const skill = await Skills.create(values)
 
         res.status(200).send(skill)

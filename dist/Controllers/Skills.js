@@ -20,7 +20,8 @@ function listSkills(req, res) {
         try {
             (0, database_1.default)();
             const skills = yield skill_1.default.find();
-            res.status(200).send(skills);
+            const response = { skills: Object.assign({}, skills) };
+            res.status(200).send(response);
         }
         catch (error) {
             res.status(500).send({ message: error });
@@ -31,7 +32,7 @@ exports.listSkills = listSkills;
 function registerSkills(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const values = { image: req.body.image, name: req.body.name };
+            const values = { image: req.body.image, name: req.body.name, label: req.body.label };
             yield (0, database_1.default)();
             const skill = yield skill_1.default.create(values);
             res.status(200).send(skill);

@@ -3,60 +3,31 @@ import mongoose from "mongoose"
 
 const SkillsSchema = new mongoose.Schema({
 
-    frontEnd: {
+    name: {
 
-        type: Array,
+        type: String,
 
-        required: true,
+        required: true
 
-
-        name: {
-
-            type: String,
-
-            required: true
-
-        },
-
-        image: {
-
-            type: String,
-
-            required: true,
-
-        }
-        
     },
 
-    backEnd: {
+    image: {
 
-        type: Array,
+        type: String,
 
-        required: true,
+        required: true
 
+    },
 
-        name: {
+    label: {
 
-            type: String,
+        type: String,
 
-            required: true
-
-        },
-
-        image: {
-
-            type: String,
-
-            required: true,
-
-        }
+        required: true
 
     }
 
 }, { collection: 'Skills' })
-
-
-  
 
 
 export default mongoose.model("Skills", SkillsSchema)
