@@ -6,6 +6,8 @@ import cors from "cors"
 
 import router from "./Routes/Skills"
 
+import projectsRouter from "./Routes/Projects"
+
 
 const app: Application = Express()
 
@@ -25,7 +27,7 @@ app.use(bodyParser.json());
 
 app.use("/skills", router)
 
-//app.use("/projects")
+app.use("/projects", projectsRouter)
 
 
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`))
